@@ -1,0 +1,35 @@
+/*
+* Transition: fade
+*/
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .25s ease;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+/*
+* Transition: slide-fade
+*/
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+.grow-x-once{
+  animation: growing-x 2s ease-in-out;
+}
+.grow-x-infinite{
+  animation: growing-x 2s infinite ease-out;
+}
+@keyframes growing-x {
+  0% { flex-basis: 0; }
+}

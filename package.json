@@ -1,0 +1,12 @@
+{
+  "name": "everdrop-shop",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "gaudiamus-css": "^1.2.1",
+    "vue": "^3.0.4",
+    "vue-router": "^3.4.9"
+  }
+}

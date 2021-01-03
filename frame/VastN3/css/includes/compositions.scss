@@ -1,0 +1,15 @@
+h1{
+  @extend .font-xl, .font-strong, .text-primary, .m-y-2;
+}
+h2{
+  @extend .font-xl, .font-strong, .text-accent, .m-y-2;
+}
+a{
+  @extend .text-decoration-none, .text-accent;
+}
+.container{
+  width: 90%;
+}
+.menu-button{
+  @extend .b-0, .b-b-2, .bg-transparent, .cursor-pointer, .text-gray-dark, .m-y-2, .w-100p, .p-b-1, .hover\:b-accent, .hover\:text-accent, .font-strong;
+}

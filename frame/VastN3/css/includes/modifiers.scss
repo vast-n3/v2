@@ -1,0 +1,7 @@
+@each $cursorOption in $cursorOptions{
+  .cursor-#{$cursorOption} { cursor:  unquote($cursorOption) }
+}
+
+@each $display in ("none", "inline"){
+  .display-#{$display} { display: unquote($display)}
+}

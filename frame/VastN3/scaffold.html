@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{{base}}/frame/VastN3/css/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body >
+
+<section id="app">
+    {{header}}
+    {{main}}
+    <router-view v-if="$route.path !== '/{{current_endpoint}}'"></router-view>
+    {{footer}}
+</section>
+{{templates}}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+  /*  const API = axios.create({
+        baseURL: '{{base}}api.v1'
+    });
+*/
+    const storeObjects = {
+        products: {
+            route:'/products',
+            state: []
+        }
+    };
+   /* const isEmpty = (name)=>{
+        return storeObjects[name].state.length<1;
+    }
+
+    const neoanStore = {
+        async getAll(name){
+            await this.fetch(name);
+            return storeObjects[name].state;
+        },
+        async find(name){
+            await this.fetch(name);
+            return (comparator, condition) => storeObjects[name].state.filter(x => x[comparator] === condition)
+        },
+        async fetch(name){
+            if(isEmpty(name)){
+                const {data} = await API.get(storeObjects[name].route);
+                storeObjects[name].state = data;
+            }
+        }
+    }*/
+
+
+
+
+</script>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/vue-router@next"></script>
+<script type="module">
+    {{browserImports}}
+
+    const API = axios.create({
+        baseURL: '{{base}}api.v1'
+    });
+
+   /* const storeObjects = {
+        products: {
+            route:'/products',
+            state: []
+        }
+    };*/
+    const isEmpty = (name)=>{
+        return storeObjects[name].state.length<1;
+    }
+
+    const neoanStore = {
+        async getAll(name){
+            await this.fetch(name);
+            return storeObjects[name].state;
+        },
+        async find(name){
+            await this.fetch(name);
+            return (comparator, condition) => storeObjects[name].state.filter(x => x[comparator] === condition)
+        },
+        async fetch(name){
+            if(isEmpty(name)){
+                const {data} = await API.get(storeObjects[name].route);
+                storeObjects[name].state = data;
+            }
+        }
+    }
+
+    const theming = (color, disabled, animated) => {
+        const classes = {};
+        ['primary', 'accent', 'warning', 'success', 'black'].forEach(computed => {
+
+            ['light','lighter','dark','darker'].forEach(modifier => {
+                classes[`bg-${computed}-${modifier} b-${computed}-${modifier} b-1 hover:raise-1-gray-light text-white`] = color === `${computed}-${modifier}-filled`
+                classes[`b-${computed}-${modifier} b-1 bg-transparent text-${computed}-${modifier}`] = color === `${computed}-${modifier}`;
+                classes[`hover:bg-${computed}-${modifier} hover:text-white`] = color === `${computed}-${modifier}` && !disabled;
+            })
+            classes[`bg-${computed} b-${computed} b-1 hover:raise-1-gray-light text-white`] = color === `${computed}-filled`
+            classes[`b-${computed} b-1 bg-transparent text-${computed}`] = color === `${computed}`;
+            classes[`hover:bg-${computed} hover:text-white`] = color === `${computed}` && !disabled;
+        })
+        classes['cursor-pointer'] = !disabled;
+        classes['cursor-not-allowed'] = disabled;
+        classes['grow-x-infinite'] = animated
+        return classes;
+    };
+
+
+    const router = VueRouter.createRouter({
+        routes: [
+
+        ],
+        history: VueRouter.createWebHistory('/')
+    });
+
+    const app = Vue.createApp({
+        data:() => ({
+            currentPath: window.location.pathname
+        }),
+        provide:{
+            API,
+            neoanStore,
+            theming,
+            router: router
+        },
+        mounted() {
+            console.log('app attached');
+
+        }
+    })
+    {{components}}
+
+    {{spaRoutes}}
+
+    app.use(router);
+    app.mount('#app')
+
+
+</script>
+{{scripts}}
+{{styles}}
+</body>
+</html>
