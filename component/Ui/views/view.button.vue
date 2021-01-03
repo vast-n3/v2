@@ -14,6 +14,7 @@
           <ui-button color="warning" class="m-r-2 m-b-1">color="warning"</ui-button>
           <ui-button color="black" class="m-r-2 m-b-1">color="black"</ui-button>
           <ui-button :disabled="true" class="m-r-2 m-b-1">:disabled="true"</ui-button>
+          <ui-button class="m-r-2 m-b-1 font-md">.font-md</ui-button>
         </div>
       </div>
       <div class="p-2">

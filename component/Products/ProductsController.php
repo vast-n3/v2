@@ -22,21 +22,12 @@ class ProductsController extends VastN3 {
     {
         $products = $this->getProducts();
         $this->renderer->storeObject('products', $products);
-        $this->renderer->includeElement('Products', ['products' => $products]);
         $this->hook('main', 'products', ['products' => $products]);
         $this->output();
     }
     function getProducts($search = [])
     {
         $cachePath = __DIR__ . '/products.json';
-        if(!file_exists($cachePath)){
-            $products = json_decode(file_get_contents('https://staging.everdrop.com/api/products/ch'),true);
-            foreach ($products as $i=>$product){
-                unset($products[$i]['body_html']);
-            }
-            file_put_contents($cachePath, json_encode($products));
-        }
-
         return json_decode(file_get_contents($cachePath),true);
 
     }

@@ -12,13 +12,10 @@
         </ui-button>
         <ui-button @click.prevent="navigate('/products')"  class="m-r-2">
           <ui-icon>storefront</ui-icon>
-          <a style="color:inherit" href="{{base}}products"> products</a>
+          <a style="color:inherit" href="{{base}}products"> "shop"</a>
 
         </ui-button>
-        <ui-button @click.prevent="navigate('/cart')">
-          <ui-icon>shopping_cart</ui-icon>
-          <a style="color:inherit" href="{{base}}cart"> cart</a>
-        </ui-button>
+
       </div>
     </div>
   </header>
@@ -27,7 +24,7 @@
 <script>
 import uiButton from '/vue/ui/lib/ui.button';
 import uiIcon from '/vue/ui/lib/ui.icon';
-@import([{"products":"/products"},{"home":"/"},{"product":"/product/:id"},{"cart":"/cart"}])
+@import([{"products":"/products"},{"home":"/"},{"product":"/product/:id"}])
 
 
 

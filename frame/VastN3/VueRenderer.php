@@ -34,6 +34,7 @@ class VueRenderer implements Renderer
             'components' => '',
             'templates' => '',
             'scripts' => '',
+            'store' => '',
             'styles' => '',
             'base' => base,
             'spaRoutes' => ''
@@ -51,6 +52,16 @@ class VueRenderer implements Renderer
         foreach ($constants['modules'] as $include) {
             $this->hooks['scripts'] .= "<script type='module' src=\"$include\"></script>";
         }
+        $storeObject = [];
+        foreach ($constants['store'] as $store){
+            foreach ($store as $name => $set){
+                $storeObject[$name]['route'] = $set['route'];
+                $storeObject[$name]['state'] = $set['state'];
+            }
+
+        }
+        $this->hooks['store'] ='const storeObjects = '. json_encode($storeObject) . ';';
+//        var_dump($this->hooks['store']);
     }
 
     public function output($afterHooks = []): void

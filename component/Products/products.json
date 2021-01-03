@@ -11,6 +11,7 @@
     "template_suffix": "",
     "published_scope": "web",
     "tags": "ch",
+    "price": "9.99",
     "variants": [
       {
         "id": 37747089965249,
@@ -75,7 +76,7 @@
         "alt": null,
         "width": 1080,
         "height": 1080,
-        "src": "/asset/productImg/n3-basics.png",
+        "src": "/asset/productImg/neoan3-basics.png",
         "variant_ids": [],
         "admin_graphql_api_id": "gid:\/\/shopify\/ProductImage\/24476002582721"
       }
@@ -89,7 +90,7 @@
       "alt": null,
       "width": 1500,
       "height": 1500,
-      "src": "/asset/productImg/n3-unit.png",
+      "src": "/asset/productImg/neoan3-basics.png",
       "variant_ids": [],
       "admin_graphql_api_id": "gid:\/\/shopify\/ProductImage\/24475988984001"
     }
@@ -97,10 +98,10 @@
   {
     "id": 6146688680129,
     "title": "TypeScript starter",
+    "price": "9.98",
     "vendor": "sroehrl",
     "product_type": "Schweiz",
     "created_at": "2020-12-10T16:16:30+01:00",
-    "handle": "ch-everdrop-starter-flaschen-kit",
     "updated_at": "2020-12-14T16:54:56+01:00",
     "published_at": "2020-12-10T16:16:30+01:00",
     "template_suffix": "",

@@ -36,10 +36,10 @@ class VastN3 extends Serve
     function __construct(Database $db = null)
     {
         parent::__construct(new VueRenderer($this->constants()));
-       /* $this->assignProvider('db', $db, function(){
-            $credentials = getCredentials();
-            $this->provider['db'] = new DatabaseWrapper($credentials[$this->dbCredentials]);
-        });*/
+        /* $this->assignProvider('db', $db, function(){
+             $credentials = getCredentials();
+             $this->provider['db'] = new DatabaseWrapper($credentials[$this->dbCredentials]);
+         });*/
 
     }
 
@@ -55,9 +55,17 @@ class VastN3 extends Serve
      * Overwriting Serve's constants()
      * @return array
      */
-    function constants()
+    function constants(): array
     {
         return [
+            'store' => [
+                [
+                    'products' => [
+                        'route' => '/products',
+                        'state' => []
+                    ]
+                ]
+            ],
             'modules' => [
 //                base . 'node_modules/vue/dist/vue.esm-browser.js',
             ]

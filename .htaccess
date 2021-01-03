@@ -2,7 +2,7 @@
 #Options +FollowSymLinks
 RewriteEngine On
 
-RewriteBase /everdrop-shop/
+RewriteBase /vast-n3/
 
 
 # turn off www

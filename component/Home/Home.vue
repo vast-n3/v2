@@ -23,7 +23,7 @@
     <div class="container bg-see-through-light b-rounded p-5 m-y-5">
       <div class="grid-6-6">
         <div>
-          <h2>What problems does solve?</h2>
+          <h2>What problems does it solve?</h2>
           <ul>
             <li>Provides SSR routes for SEO relevant pages</li>
             <li>Speeds up delivery & development through innovative shared front-/back-end store</li>
