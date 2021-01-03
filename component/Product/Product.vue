@@ -1,7 +1,7 @@
 <template>
   <div class="container m-t-5">
     <h1>{{ product.title }}</h1>
-    <div class="grid grid-6-6">
+    <div class="grid md:grid-6-6">
       <div v-if="product.image">
         <img @click="modal(product.image.src)" src="{{product.image.src}}" :src="product.image.src" class="w-100p cursor-pointer"/>
         <div class="grid-3-3-3-3">
@@ -79,7 +79,6 @@ export default {
     this.neoanStore.find('products').then(search => {
       this.product = search('id', parseInt(this.$route.params.id))[0];
       this.currentImage = this.product.image.src;
-      console.log(JSON.parse(JSON.stringify(this.product)))
     })
 
   },

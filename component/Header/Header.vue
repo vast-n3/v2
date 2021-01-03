@@ -7,7 +7,7 @@
         </a>
       </figure>
       <div class="place-x-end place-y-center">
-        <ui-button  class="m-r-2" >
+        <ui-button @click.prevent="navigate('/ui')" class="m-r-2" >
           <a style="color:inherit" href="{{base}}ui">UI</a>
         </ui-button>
         <ui-button @click.prevent="navigate('/products')"  class="m-r-2">
@@ -24,7 +24,7 @@
 <script>
 import uiButton from '/vue/ui/lib/ui.button';
 import uiIcon from '/vue/ui/lib/ui.icon';
-@import([{"products":"/products"},{"home":"/"},{"product":"/product/:id"}])
+@import([{"products":"/products"},{"home":"/"},{"product":"/product/:id"},{"ui":"/ui"}])
 
 
 

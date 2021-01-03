@@ -42130,19 +42130,19 @@ p {
 }
 
 .bg-accent {
-  background-color: #1a237e;
+  background-color: #135fcf;
 }
 
 .focus\:bg-accent:focus {
-  background-color: #1a237e;
+  background-color: #135fcf;
 }
 
 .hover\:bg-accent:hover {
-  background-color: #1a237e;
+  background-color: #135fcf;
 }
 
 .active\:bg-accent:active {
-  background-color: #1a237e;
+  background-color: #135fcf;
 }
 
 .bg-success {
@@ -42322,51 +42322,51 @@ p {
 }
 
 .bg-accent-light {
-  background-color: #404ed8;
+  background-color: #70a4f2;
 }
 
 .focus\:bg-accent-light:focus {
-  background-color: #404ed8;
+  background-color: #70a4f2;
 }
 
 .hover\:bg-accent-light:hover {
-  background-color: #404ed8;
+  background-color: #70a4f2;
 }
 
 .active\:bg-accent-light:active {
-  background-color: #404ed8;
+  background-color: #70a4f2;
 }
 
 .bg-accent-lighter {
-  background-color: #aab0ed;
+  background-color: #e4eefd;
 }
 
 .focus\:bg-accent-lighter:focus {
-  background-color: #aab0ed;
+  background-color: #e4eefd;
 }
 
 .hover\:bg-accent-lighter:hover {
-  background-color: #aab0ed;
+  background-color: #e4eefd;
 }
 
 .active\:bg-accent-lighter:active {
-  background-color: #aab0ed;
+  background-color: #e4eefd;
 }
 
 .bg-accent-dark {
-  background-color: #040614;
+  background-color: #08295a;
 }
 
 .focus\:bg-accent-dark:focus {
-  background-color: #040614;
+  background-color: #08295a;
 }
 
 .hover\:bg-accent-dark:hover {
-  background-color: #040614;
+  background-color: #08295a;
 }
 
 .active\:bg-accent-dark:active {
-  background-color: #040614;
+  background-color: #08295a;
 }
 
 .bg-accent-darker {
@@ -42850,19 +42850,19 @@ p {
 }
 
 .text-accent, a, h2 {
-  color: #1a237e;
+  color: #135fcf;
 }
 
 .focus\:text-accent:focus {
-  color: #1a237e;
+  color: #135fcf;
 }
 
 .hover\:text-accent:hover, .menu-button:hover {
-  color: #1a237e;
+  color: #135fcf;
 }
 
 .active\:text-accent:active {
-  color: #1a237e;
+  color: #135fcf;
 }
 
 .text-success {
@@ -43042,51 +43042,51 @@ p {
 }
 
 .text-accent-light {
-  color: #404ed8;
+  color: #70a4f2;
 }
 
 .focus\:text-accent-light:focus {
-  color: #404ed8;
+  color: #70a4f2;
 }
 
 .hover\:text-accent-light:hover {
-  color: #404ed8;
+  color: #70a4f2;
 }
 
 .active\:text-accent-light:active {
-  color: #404ed8;
+  color: #70a4f2;
 }
 
 .text-accent-lighter {
-  color: #aab0ed;
+  color: #e4eefd;
 }
 
 .focus\:text-accent-lighter:focus {
-  color: #aab0ed;
+  color: #e4eefd;
 }
 
 .hover\:text-accent-lighter:hover {
-  color: #aab0ed;
+  color: #e4eefd;
 }
 
 .active\:text-accent-lighter:active {
-  color: #aab0ed;
+  color: #e4eefd;
 }
 
 .text-accent-dark {
-  color: #040614;
+  color: #08295a;
 }
 
 .focus\:text-accent-dark:focus {
-  color: #040614;
+  color: #08295a;
 }
 
 .hover\:text-accent-dark:hover {
-  color: #040614;
+  color: #08295a;
 }
 
 .active\:text-accent-dark:active {
-  color: #040614;
+  color: #08295a;
 }
 
 .text-accent-darker {
@@ -43570,19 +43570,19 @@ p {
 }
 
 .b-accent {
-  border-color: #1a237e;
+  border-color: #135fcf;
 }
 
 .focus\:b-accent:focus {
-  border-color: #1a237e;
+  border-color: #135fcf;
 }
 
 .hover\:b-accent:hover, .menu-button:hover {
-  border-color: #1a237e;
+  border-color: #135fcf;
 }
 
 .active\:b-accent:active {
-  border-color: #1a237e;
+  border-color: #135fcf;
 }
 
 .b-success {
@@ -43762,51 +43762,51 @@ p {
 }
 
 .b-accent-light {
-  border-color: #404ed8;
+  border-color: #70a4f2;
 }
 
 .focus\:b-accent-light:focus {
-  border-color: #404ed8;
+  border-color: #70a4f2;
 }
 
 .hover\:b-accent-light:hover {
-  border-color: #404ed8;
+  border-color: #70a4f2;
 }
 
 .active\:b-accent-light:active {
-  border-color: #404ed8;
+  border-color: #70a4f2;
 }
 
 .b-accent-lighter {
-  border-color: #aab0ed;
+  border-color: #e4eefd;
 }
 
 .focus\:b-accent-lighter:focus {
-  border-color: #aab0ed;
+  border-color: #e4eefd;
 }
 
 .hover\:b-accent-lighter:hover {
-  border-color: #aab0ed;
+  border-color: #e4eefd;
 }
 
 .active\:b-accent-lighter:active {
-  border-color: #aab0ed;
+  border-color: #e4eefd;
 }
 
 .b-accent-dark {
-  border-color: #040614;
+  border-color: #08295a;
 }
 
 .focus\:b-accent-dark:focus {
-  border-color: #040614;
+  border-color: #08295a;
 }
 
 .hover\:b-accent-dark:hover {
-  border-color: #040614;
+  border-color: #08295a;
 }
 
 .active\:b-accent-dark:active {
-  border-color: #040614;
+  border-color: #08295a;
 }
 
 .b-accent-darker {
@@ -44597,19 +44597,19 @@ p {
 }
 
 .raise-1-accent {
-  box-shadow: 0.125rem  0.1875rem 4px #1a237e;
+  box-shadow: 0.125rem  0.1875rem 4px #135fcf;
 }
 
 .focus\:raise-1-accent:focus {
-  box-shadow: 0.125rem  0.1875rem 4px #1a237e;
+  box-shadow: 0.125rem  0.1875rem 4px #135fcf;
 }
 
 .hover\:raise-1-accent:hover {
-  box-shadow: 0.125rem  0.1875rem 4px #1a237e;
+  box-shadow: 0.125rem  0.1875rem 4px #135fcf;
 }
 
 .active\:raise-1-accent:active {
-  box-shadow: 0.125rem  0.1875rem 4px #1a237e;
+  box-shadow: 0.125rem  0.1875rem 4px #135fcf;
 }
 
 .raise-1-success {
@@ -44789,51 +44789,51 @@ p {
 }
 
 .raise-1-accent-light {
-  box-shadow: 0.125rem  0.1875rem 4px #404ed8;
+  box-shadow: 0.125rem  0.1875rem 4px #70a4f2;
 }
 
 .focus\:raise-1-accent-light:focus {
-  box-shadow: 0.125rem  0.1875rem 4px #404ed8;
+  box-shadow: 0.125rem  0.1875rem 4px #70a4f2;
 }
 
 .hover\:raise-1-accent-light:hover {
-  box-shadow: 0.125rem  0.1875rem 4px #404ed8;
+  box-shadow: 0.125rem  0.1875rem 4px #70a4f2;
 }
 
 .active\:raise-1-accent-light:active {
-  box-shadow: 0.125rem  0.1875rem 4px #404ed8;
+  box-shadow: 0.125rem  0.1875rem 4px #70a4f2;
 }
 
 .raise-1-accent-lighter {
-  box-shadow: 0.125rem  0.1875rem 4px #aab0ed;
+  box-shadow: 0.125rem  0.1875rem 4px #e4eefd;
 }
 
 .focus\:raise-1-accent-lighter:focus {
-  box-shadow: 0.125rem  0.1875rem 4px #aab0ed;
+  box-shadow: 0.125rem  0.1875rem 4px #e4eefd;
 }
 
 .hover\:raise-1-accent-lighter:hover {
-  box-shadow: 0.125rem  0.1875rem 4px #aab0ed;
+  box-shadow: 0.125rem  0.1875rem 4px #e4eefd;
 }
 
 .active\:raise-1-accent-lighter:active {
-  box-shadow: 0.125rem  0.1875rem 4px #aab0ed;
+  box-shadow: 0.125rem  0.1875rem 4px #e4eefd;
 }
 
 .raise-1-accent-dark {
-  box-shadow: 0.125rem  0.1875rem 4px #040614;
+  box-shadow: 0.125rem  0.1875rem 4px #08295a;
 }
 
 .focus\:raise-1-accent-dark:focus {
-  box-shadow: 0.125rem  0.1875rem 4px #040614;
+  box-shadow: 0.125rem  0.1875rem 4px #08295a;
 }
 
 .hover\:raise-1-accent-dark:hover {
-  box-shadow: 0.125rem  0.1875rem 4px #040614;
+  box-shadow: 0.125rem  0.1875rem 4px #08295a;
 }
 
 .active\:raise-1-accent-dark:active {
-  box-shadow: 0.125rem  0.1875rem 4px #040614;
+  box-shadow: 0.125rem  0.1875rem 4px #08295a;
 }
 
 .raise-1-accent-darker {
@@ -45317,19 +45317,19 @@ p {
 }
 
 .raise-2-accent {
-  box-shadow: 0.25rem  0.375rem 4px #1a237e;
+  box-shadow: 0.25rem  0.375rem 4px #135fcf;
 }
 
 .focus\:raise-2-accent:focus {
-  box-shadow: 0.25rem  0.375rem 4px #1a237e;
+  box-shadow: 0.25rem  0.375rem 4px #135fcf;
 }
 
 .hover\:raise-2-accent:hover {
-  box-shadow: 0.25rem  0.375rem 4px #1a237e;
+  box-shadow: 0.25rem  0.375rem 4px #135fcf;
 }
 
 .active\:raise-2-accent:active {
-  box-shadow: 0.25rem  0.375rem 4px #1a237e;
+  box-shadow: 0.25rem  0.375rem 4px #135fcf;
 }
 
 .raise-2-success {
@@ -45509,51 +45509,51 @@ p {
 }
 
 .raise-2-accent-light {
-  box-shadow: 0.25rem  0.375rem 4px #404ed8;
+  box-shadow: 0.25rem  0.375rem 4px #70a4f2;
 }
 
 .focus\:raise-2-accent-light:focus {
-  box-shadow: 0.25rem  0.375rem 4px #404ed8;
+  box-shadow: 0.25rem  0.375rem 4px #70a4f2;
 }
 
 .hover\:raise-2-accent-light:hover {
-  box-shadow: 0.25rem  0.375rem 4px #404ed8;
+  box-shadow: 0.25rem  0.375rem 4px #70a4f2;
 }
 
 .active\:raise-2-accent-light:active {
-  box-shadow: 0.25rem  0.375rem 4px #404ed8;
+  box-shadow: 0.25rem  0.375rem 4px #70a4f2;
 }
 
 .raise-2-accent-lighter {
-  box-shadow: 0.25rem  0.375rem 4px #aab0ed;
+  box-shadow: 0.25rem  0.375rem 4px #e4eefd;
 }
 
 .focus\:raise-2-accent-lighter:focus {
-  box-shadow: 0.25rem  0.375rem 4px #aab0ed;
+  box-shadow: 0.25rem  0.375rem 4px #e4eefd;
 }
 
 .hover\:raise-2-accent-lighter:hover {
-  box-shadow: 0.25rem  0.375rem 4px #aab0ed;
+  box-shadow: 0.25rem  0.375rem 4px #e4eefd;
 }
 
 .active\:raise-2-accent-lighter:active {
-  box-shadow: 0.25rem  0.375rem 4px #aab0ed;
+  box-shadow: 0.25rem  0.375rem 4px #e4eefd;
 }
 
 .raise-2-accent-dark {
-  box-shadow: 0.25rem  0.375rem 4px #040614;
+  box-shadow: 0.25rem  0.375rem 4px #08295a;
 }
 
 .focus\:raise-2-accent-dark:focus {
-  box-shadow: 0.25rem  0.375rem 4px #040614;
+  box-shadow: 0.25rem  0.375rem 4px #08295a;
 }
 
 .hover\:raise-2-accent-dark:hover {
-  box-shadow: 0.25rem  0.375rem 4px #040614;
+  box-shadow: 0.25rem  0.375rem 4px #08295a;
 }
 
 .active\:raise-2-accent-dark:active {
-  box-shadow: 0.25rem  0.375rem 4px #040614;
+  box-shadow: 0.25rem  0.375rem 4px #08295a;
 }
 
 .raise-2-accent-darker {
@@ -46125,6 +46125,17 @@ input, textarea, button, select {
 }
 .container {
   width: 90%;
+}
+
+ul.list li {
+  position: relative;
+  padding-left: 10px;
+  margin-bottom: 5px;
+}
+ul.list li:before {
+  position: absolute;
+  content: ">";
+  left: 0;
 }
 
 /*# sourceMappingURL=index.css.map */

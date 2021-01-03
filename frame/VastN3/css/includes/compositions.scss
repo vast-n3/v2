@@ -13,3 +13,15 @@ a{
 .menu-button{
   @extend .b-0, .b-b-2, .bg-transparent, .cursor-pointer, .text-gray-dark, .m-y-2, .w-100p, .p-b-1, .hover\:b-accent, .hover\:text-accent, .font-strong;
 }
+
+ul.list li{
+  position: relative;
+  padding-left: 10px;
+  margin-bottom: 5px;
+  &:before{
+    position:absolute;
+    content:">";
+    left:0;
+  }
+
+}
