@@ -61,7 +61,6 @@ class VueRenderer implements Renderer
 
         }
         $this->hooks['store'] ='const storeObjects = '. json_encode($storeObject) . ';';
-//        var_dump($this->hooks['store']);
     }
 
     public function output($afterHooks = []): void
