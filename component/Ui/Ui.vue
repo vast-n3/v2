@@ -1,13 +1,13 @@
 <template>
-  <ui-layout style="min-height: 100vh">
+  <ui-layout v-model:menu-expanded="menuOpen">
     <template #menu>
       <div class="menu" v-for="item in menu" :key="item.name">
-        <h3 class="text-gray-light m-t-3">{{item.name}}</h3>
-        <button class="menu-button" v-for="sub in item.links" @click="transition(sub,300)">{{sub}}</button>
+        <h3 class="text-gray-light m-t-3">{{ item.name }}</h3>
+        <button class="menu-button" v-for="sub in item.links" @click="transition(sub,300)">{{ sub }}</button>
       </div>
 
     </template>
-    <div class="container">
+    <div class="container" style="min-height: 100vh">
       <div class="m-t-5 m-x-1 bg-white b-rounded p-4 grid-11-1">
         <transition name="slide-fade">
           <view-introduction v-if="activeView === 'Introduction'"/>
@@ -77,23 +77,23 @@ const menu = [
     name: 'CSS',
     active: false,
     links: [
-        'Gaudiamus SCSS', 'Theming / Color', 'Customization'
+      'Gaudiamus SCSS', 'Theming / Color', 'Customization'
     ]
   },
   {
     name: 'Components',
     active: false,
     links: [
-        'Alert',
-        'Accordion',
-        'Button',
-        'Code',
-        'Form',
-        'Icon',
-        'Modal',
-        'Progress',
-        'Tab',
-        'Tag',
+      'Accordion',
+      'Alert',
+      'Button',
+      'Code',
+      'Form',
+      'Icon',
+      'Modal',
+      'Progress',
+      'Tab',
+      'Tag',
     ]
   }
 ];
@@ -124,15 +124,17 @@ export default {
       string: '',
       activeTab: 0,
       toggle: false,
-      toggleAlt: false
+      toggleAlt: false,
+      menuOpen: false
     }
   },
-  methods:{
-    transition(target, delay){
+  methods: {
+    transition(target, delay) {
       this.activeView = '';
-      setTimeout(()=> this.activeView = target, delay)
+      this.menuOpen = false;
+      setTimeout(() => this.activeView = target, delay)
     },
-    route(){
+    route() {
       console.log(this)
       this.$router.push('/foo')
     }
@@ -142,3 +144,7 @@ export default {
 
 
 </script>
+
+<style>
+
+</style>

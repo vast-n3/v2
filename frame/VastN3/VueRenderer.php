@@ -13,11 +13,13 @@ use ScssPhp\ScssPhp\Compiler;
 
 class VueRenderer implements Renderer
 {
-
+    private ?string $componentName = null;
+    private string $lang = 'en';
     public array $hooks = [];
     public array $browserImports = [];
     public array $loadedElements = [];
     private array $templateParameters = [];
+    public array $storeObject = [];
     private string $title = '';
     public array $exposedParams = [
         'base' => base,
@@ -52,20 +54,21 @@ class VueRenderer implements Renderer
         foreach ($constants['modules'] as $include) {
             $this->hooks['scripts'] .= "<script type='module' src=\"$include\"></script>";
         }
-        $storeObject = [];
         foreach ($constants['store'] as $store){
             foreach ($store as $name => $set){
-                $storeObject[$name]['route'] = $set['route'];
-                $storeObject[$name]['state'] = $set['state'];
+                $this->storeObject[$name]['endpoints'] = $set['endpoints'];
+                $this->storeObject[$name]['state'] = $set['state'];
             }
 
         }
-        $this->hooks['store'] ='const storeObjects = '. json_encode($storeObject) . ';';
+        foreach ($constants['stylesheets'] as $stylesheet){
+            $this->hooks['styles'] .= '<style>' . file_get_contents($stylesheet) . '</style>';
+        }
     }
 
     public function output($afterHooks = []): void
     {
-
+        $this->hooks['store'] ='const storeObjects = Vue.reactive('. json_encode($this->storeObject) . ');';
         $this->hooks['browserImports'] = implode("", $this->browserImports);
         $compileScss = false;
         if($compileScss){
@@ -74,23 +77,27 @@ class VueRenderer implements Renderer
             file_put_contents(__DIR__ . '/css/index.css', $scss->compile(file_get_contents(__DIR__ . '/css/index.scss')));
         }
         $this->hooks['title'] = $this->title;
+        $this->hooks['lang'] = $this->lang;
+        foreach ($this->storeObject as $name => $value){
+            $this->storeObject($name, $value['state']);
+        }
 
         echo Template::embraceFromFile('/frame/VastN3/scaffold.html', $this->hooks);
     }
 
     public function setComponentName($qualifiedClassName): void
     {
-        // TODO: Implement setComponentName() method.
+        $this->componentName = $qualifiedClassName;
     }
 
     public function getComponentName(): string
     {
-        // TODO: Implement getComponentName() method.
+        return $this->componentName;
     }
 
     public function setLang(string $lang): void
     {
-        // TODO: Implement setLang() method.
+        $this->lang = $lang;
     }
 
     public function setTitle(string $title): void
@@ -110,25 +117,72 @@ class VueRenderer implements Renderer
         return $ssrTemplate[1];
     }
 
-    private function handleImports($script)
+    private function parseRoutes(array $routes)
     {
-        return preg_replace_callback('/(@)*import(\s[a-z]+\s)*(\((.+)\))*.+\n/i',function($hit){
-            if(isset($hit[4])){
-                $routes = json_decode($hit[4], true);
-                foreach ($routes as $route){
-                    foreach ($route as $name => $path){
-                        $name = Ops::toPascalCase($name);
-                        $this->hooks['spaRoutes'] .= "\nrouter.addRoute({path: '$path', component: n$name})";
-                        if(!in_array($name,$this->loadedElements)){
-                            $this->includeElement($name);
-                        }
-                    }
+        foreach ($routes as $route){
+            foreach ($route as $name => $path){
+                $name = Ops::toPascalCase($name);
+                $this->hooks['spaRoutes'] .= "\nrouter.addRoute({path: '$path', component: n$name, name: '$name'})";
+                if(!in_array($name,$this->loadedElements)){
+                    $this->includeElement($name);
                 }
-
-            } elseif(!isset($this->browserImports[$hit[2]])) {
-                $this->browserImports[$hit[2]] = $hit[0];
             }
-            return "//requires $hit[2]\n";
+        }
+    }
+    private function parseStores(array $stores)
+    {
+        foreach ($stores as $name => $definitions){
+            if(!isset($this->storeObject[$name])){
+                $this->storeObject[$name] = [
+                    'endpoints' => [],
+                    'state' => []
+                ];
+            }
+            foreach ($definitions as $method => $handle){
+                $actions = explode(',',preg_replace('/\s/','', $handle));
+                $usesAuto = in_array('auto', $actions);
+                $preloads = in_array('preload', $actions);
+
+                if($usesAuto){
+                    $route = '/vue/' . $name;
+                } else {
+                    $endpoints = preg_grep('/^\/[^$]*/', $actions);
+                    $route = end($endpoints);
+                }
+                $this->storeObject[$name]['endpoints'][$method] = $route;
+                // should only happen on GET!
+                if($preloads && $usesAuto){
+                    $className = '\\Neoan3\\Component\\Vue\\VueController';
+                    $apiCtrl = new $className();
+                    $function = 'getVue';
+                    $this->storeObject[$name]['state'] = $apiCtrl->$function($name);
+                } elseif ($preloads) {
+                    $className = '\\Neoan3\\Component\\' . Ops::toPascalCase($name) . '\\' . Ops::toPascalCase($name) . 'Controller';
+                    $apiCtrl = new $className();
+                    $function = 'get' . Ops::toPascalCase($name);
+                    $state = $apiCtrl->$function();
+                    $this->storeObject[$name]['state'] = $state;
+                }
+            }
+        }
+    }
+
+    private function handleImports($script) : string
+    {
+        return preg_replace_callback('/^(@)*import(\(([^\)]*)\)|\s([^\s]+)([^\n]*))/im',function($hit){
+            if(!empty($hit[1]) && !empty($hit[3])){
+                $atImports = json_decode($hit[3], true);
+                if(isset($atImports['routes'])){
+                    $this->parseRoutes($atImports['routes']);
+                }
+                if(isset($atImports['store'])){
+                    $this->parseStores($atImports['store']);
+                }
+            } elseif(!isset($this->browserImports[$hit[4]])) {
+                $this->browserImports[$hit[4]] = '  '.$hit[0];
+            }
+
+            return "/*$hit[0]*/\n";
         }, $script);
     }
 
@@ -177,6 +231,9 @@ class VueRenderer implements Renderer
         $template = $this->readTemplateTag($path);
         $currentRoute = Ops::toCamelCase($view);
         $condition = $name === 'main' ? "v-if=\"\$route.path === '/$currentRoute'\"" : '';
+        foreach ($this->storeObject as $storeName => $nfo){
+            $params = array_merge([$storeName => $nfo['state']], $params);
+        }
         $this->hooks[$name] = "<n-$view $condition>". Template::embrace($template,$params) . "</n-$view>";
     }
     public function storeObject($constName, $value){
@@ -260,9 +317,9 @@ class VueRenderer implements Renderer
         foreach ($params as $key => $value){
             $jsParams[$key] = is_array($value) ? json_encode($value) : $value;
         }
-
+        $script = substr($doc->saveHTML($xPath->query('//script')->item(0)),9,-10);
         return Template::embrace(
-            substr($doc->saveHTML($xPath->query('//script')->item(0)),9,-10),
+            $script,
             $jsParams
         );
 

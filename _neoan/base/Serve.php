@@ -65,7 +65,7 @@ class Serve
      * @param $modelClass
      * @return Model
      */
-    public function loadModel($modelClass)
+    public function loadModel($modelClass): Model
     {
         $modelClass::init($this->provider);
         return $modelClass;
@@ -75,7 +75,7 @@ class Serve
     /**
      * @return array
      */
-    public function constants()
+    public function constants(): array
     {
         return [];
     }

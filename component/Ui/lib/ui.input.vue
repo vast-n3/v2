@@ -5,7 +5,8 @@
     </span>
     <textarea :required="required" @change="$emit('update:value', $event.target.value)" class="b-0 b-b-1 b-gray focus:b-primary p-b-2 w-100p" rows="3" v-if="type === 'textarea'"></textarea>
     <select v-else-if="type === 'select'" :required="required" class="b-0 b-b-1 b-gray focus:b-primary p-b-2  w-100p" @change="$emit('update:value', $event.target.value)">
-      <slot></slot>
+      <option disabled selected v-if="placeholder">{{placeholder}}</option>
+      <option v-for="option in options" :value="option[optionValue]">{{option[optionTitle]}}</option>
     </select>
     <span v-else-if="type === 'checkbox'"
           :required="required"
@@ -32,6 +33,15 @@ export default {
       default: ''
     },
     label: String,
+    options: Array,
+    optionValue: {
+      type: String,
+      default: 'id'
+    },
+    optionTitle: {
+      type: String,
+      default: 'title'
+    },
     placeholder: String,
     type: {
       type: String,

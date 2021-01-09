@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{lang}}">
 <head>
     <meta charset="UTF-8">
     <title>{{title}}</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="{{base}}/frame/VastN3/css/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body >
+{{styles}}
+<body>
+
 
 <section id="app">
     {{header}}
@@ -28,7 +29,7 @@
     {{store}}
 </script>
 <script type="module">
-    {{browserImports}}
+{{browserImports}}
 
     const API = axios.create({
         baseURL: '{{base}}api.v1'
@@ -47,9 +48,13 @@
             await this.fetch(name);
             return (comparator, condition) => storeObjects[name].state.filter(x => x[comparator] === condition)
         },
+        async post(name,payload){
+            const {data} = await API.post(storeObjects[name].endpoints.post, payload);
+            storeObjects[name].state.push(data);
+        },
         async fetch(name){
             if(isEmpty(name)){
-                const {data} = await API.get(storeObjects[name].route);
+                const {data} = await API.get(storeObjects[name].endpoints.get);
                 storeObjects[name].state = data;
             }
         }
@@ -101,12 +106,21 @@
 
     {{spaRoutes}}
 
+    router.afterEach((to, from) => {
+
+        Vue.nextTick(() => {
+            document.title = to.name ? to.name.toUpperCase() : 'vast n3';
+        });
+    });
     app.use(router);
-    app.mount('#app')
+    setTimeout(()=>{
+        app.mount('#app')
+    })
+
 
 
 </script>
 {{scripts}}
-{{styles}}
+
 </body>
 </html>

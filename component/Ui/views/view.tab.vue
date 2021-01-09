@@ -8,7 +8,16 @@
       <div class="p-3">
         <ui-tabs :tabs="['ONE','TWO','THREE']" v-model:selected="selectedTab" ></ui-tabs>
         <div class="m-3">
-          Content {{selectedTab+1}}
+          <div v-for="active in [0,1,2]">
+            <transition name="swipe">
+              <div v-if="selectedTab===active">
+                Content {{selectedTab+1}}
+              </div>
+
+            </transition>
+          </div>
+
+
         </div>
 
       </div>

@@ -4,6 +4,12 @@ h1{
 h2{
   @extend .font-xl, .font-strong, .text-accent, .m-y-2;
 }
+h3{
+  @extend .font-md, .text-primary, .m-y-2;
+}
+p{
+  @extend .m-b-2;
+}
 a{
   @extend .text-decoration-none, .text-accent;
 }
@@ -12,6 +18,10 @@ a{
 }
 .menu-button{
   @extend .b-0, .b-b-2, .bg-transparent, .cursor-pointer, .text-gray-dark, .m-y-2, .w-100p, .p-b-1, .hover\:b-accent, .hover\:text-accent, .font-strong;
+}
+
+.circle{
+  border-radius: 50%;
 }
 
 ul.list li{
@@ -24,4 +34,23 @@ ul.list li{
     left:0;
   }
 
+}
+
+::-webkit-scrollbar {
+  width: .5em;
+  height: .5em;
+}
+::-webkit-scrollbar:hover {
+  width: 1em;
+  height: 1em;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $primaryColor;
+  border-radius: 5px;
 }

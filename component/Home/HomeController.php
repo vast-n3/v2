@@ -19,6 +19,7 @@ class HomeController extends VastN3 {
     {
         $this->renderer->includeElement('Home');
         $this->hook('main', 'home', []);
+        $this->setTitle('Vast-n3 Home');
         $this->output();
     }
 

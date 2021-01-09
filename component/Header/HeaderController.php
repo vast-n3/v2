@@ -17,7 +17,7 @@ class HeaderController extends VastN3 {
      */
     function init(): void
     {
-        $this->renderer->includeElement('Header');
+        $this->renderer->includeElement('Header', []);
         $this->output();
     }
 

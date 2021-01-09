@@ -28,11 +28,11 @@ class ProductController extends VastN3 {
             foreach ($products as $product){
                 if($product['id'] == sub(1)){
                     $params['product'] = $product;
+                    $params['variants'] = $product['variants'];
                 }
             }
 
         }
-//        $this->hook('main', 'product', $params);
         $this->renderer->includeElement('Product', $params);
         $this->hook('main', 'product', $params);
         $this->output();

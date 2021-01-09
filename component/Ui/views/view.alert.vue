@@ -4,7 +4,7 @@
     <p>
       Simple box-message
     </p>
-    <div class="grid-6-6 m-t-3">
+    <div class="grid md:grid-6-6 m-t-3">
       <div class="p-3">
         <ui-alert class="grid grid-3-9" color="warning-light-filled">
           <ui-icon class="font-lg">warning</ui-icon>
@@ -20,7 +20,7 @@
         </ui-alert>
       </div>
       <div>
-        <ui-code style="overflow-x: auto">
+        <ui-code>
           <pre>
           &lt;ui-alert class="grid grid-3-9 m-t-3" color="success">
             &lt;ui-icon class="font-lg text-success-darker">check&lt;/ui-icon>

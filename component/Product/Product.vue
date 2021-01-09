@@ -10,14 +10,21 @@
           </ui-button>
         </div>
       </div>
+
       <section class="p-l-3">
         <h3>{{product.title}}</h3>
-        <ui-input type="select" v-model:value="selectedVariant">
-          <option disabled selected>choose</option>
-<!--          Notice the markup with n-for as well as v-for -->
+        <ui-input type="select" v-model:value="selectedVariant" placeholder="choose" :options="product.variants">
 <!--          This enables the backend to render the options before Vue takes over for the client -->
-          <option n-for="product.variants as variant" v-for="variant in product.variants" :value="variant.id">{{variant.title}}</option>
+          <select name="variant">
+            <option disabled selected>choose</option>
+            <option n-for="variants as variant">
+              {{variant.title}}
+            </option>
+          </select>
         </ui-input>
+        <p class="m-y-5" n-if="1==2">
+          <a target="_blank" :href="link" >{{link}}</a>
+        </p>
         <div class="m-5">
           <ui-button @click="showNotification=true" color="primary-filled">
             Buy for US$ {{product.price}}
@@ -33,16 +40,12 @@
                   <ui-icon>close</ui-icon>
                 </ui-button>
               </div>
-
-
             </ui-alert>
           </div>
         </div>
       </section>
     </div>
-    <ui-modal :show="open" @close="open =! open">
-      <p class="m-4">{{product.title}}</p>
-
+    <ui-modal :show="open" @close="open =! open" :title="product.title">
       <img class="w-100p" :src="currentImage" alt="loading">
     </ui-modal>
   </div>
@@ -73,6 +76,7 @@ export default {
     selectedVariant:null,
     currentImage:null,
     open:false,
+    link: '',
     showNotification:false
   }),
   async mounted() {
@@ -84,7 +88,8 @@ export default {
   },
   watch: {
     selectedVariant(newVal){
-      console.log(newVal)
+
+      this.link = this.product.variants.filter(v => Number(v.id) === Number(newVal))[0].link;
     }
   },
   methods:{

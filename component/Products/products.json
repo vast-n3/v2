@@ -3,79 +3,37 @@
     "id": 6146692317377,
     "title": "neoan3",
     "vendor": "sroehrl",
-    "product_type": "Schweiz",
-    "created_at": "2020-12-10T16:20:25+01:00",
-    "handle": "neoan3",
-    "updated_at": "2020-12-14T19:35:56+01:00",
-    "published_at": null,
-    "template_suffix": "",
-    "published_scope": "web",
-    "tags": "ch",
     "price": "9.99",
     "variants": [
       {
         "id": 37747089965249,
         "product_id": 6146692317377,
-        "title": "Default Title",
-        "price": "64.99",
-        "sku": "ED-P02002",
-        "position": 1,
-        "inventory_policy": "continue",
-        "compare_at_price": null,
-        "fulfillment_service": "manual",
-        "inventory_management": "shopify",
-        "option1": "Default Title",
-        "option2": null,
-        "option3": null,
-        "created_at": "2020-12-10T16:20:25+01:00",
-        "updated_at": "2020-12-14T19:31:13+01:00",
-        "taxable": true,
-        "barcode": "",
-        "grams": 3000,
-        "image_id": null,
-        "weight": 3,
-        "weight_unit": "kg",
-        "inventory_item_id": 39840229097665,
-        "inventory_quantity": 999998,
-        "old_inventory_quantity": 999998,
-        "requires_shipping": true,
-        "admin_graphql_api_id": "gid:\/\/shopify\/ProductVariant\/37747089965249"
-      }
-    ],
-    "options": [
-      {
-        "id": 7835873247425,
+        "title": "Github - core",
+        "price": "0.00",
+        "link": "https://github.com/neoan3/neoan3#readme"
+      },{
+        "id": 37747089965249,
         "product_id": 6146692317377,
-        "name": "Title",
-        "position": 1,
-        "values": [
-          "Default Title"
-        ]
+        "title": "Github - cli",
+        "price": "0.00",
+        "link": "https://github.com/neoan3/cli#readme"
+      },
+      {
+        "id": 37747089965250,
+        "product_id": 6146692317377,
+        "title": "Docs",
+        "price": "0.00",
+        "link": "https://neoan3.rocks"
       }
     ],
+
     "images": [
       {
         "id": 24475988984001,
-        "product_id": 6146692317377,
-        "position": 1,
-        "created_at": "2020-12-14T17:33:46+01:00",
-        "updated_at": "2020-12-14T17:33:46+01:00",
-        "alt": null,
-        "width": 1500,
-        "height": 1500,
-        "src": "/asset/productImg/n3-unit.png",
-        "variant_ids": [],
-        "admin_graphql_api_id": "gid:\/\/shopify\/ProductImage\/24475988984001"
+        "src": "/asset/productImg/n3-unit.png"
       },
       {
         "id": 24476002582721,
-        "product_id": 6146692317377,
-        "position": 2,
-        "created_at": "2020-12-14T17:36:14+01:00",
-        "updated_at": "2020-12-14T17:36:15+01:00",
-        "alt": null,
-        "width": 1080,
-        "height": 1080,
         "src": "/asset/productImg/neoan3-basics.png",
         "variant_ids": [],
         "admin_graphql_api_id": "gid:\/\/shopify\/ProductImage\/24476002582721"
@@ -83,16 +41,7 @@
     ],
     "image": {
       "id": 24475988984001,
-      "product_id": 6146692317377,
-      "position": 1,
-      "created_at": "2020-12-14T17:33:46+01:00",
-      "updated_at": "2020-12-14T17:33:46+01:00",
-      "alt": null,
-      "width": 1500,
-      "height": 1500,
-      "src": "/asset/productImg/neoan3-basics.png",
-      "variant_ids": [],
-      "admin_graphql_api_id": "gid:\/\/shopify\/ProductImage\/24475988984001"
+      "src": "/asset/productImg/neoan3-basics.png"
     }
   },
   {
@@ -100,82 +49,26 @@
     "title": "TypeScript starter",
     "price": "9.98",
     "vendor": "sroehrl",
-    "product_type": "Schweiz",
-    "created_at": "2020-12-10T16:16:30+01:00",
-    "updated_at": "2020-12-14T16:54:56+01:00",
-    "published_at": "2020-12-10T16:16:30+01:00",
-    "template_suffix": "",
-    "published_scope": "web",
-    "tags": "ch",
-    "admin_graphql_api_id": "gid:\/\/shopify\/Product\/6146688680129",
     "variants": [
       {
         "id": 37747073614017,
         "product_id": 6146688680129,
-        "title": "Default Title",
-        "price": "49.99",
-        "sku": "ED-P01001",
-        "position": 1,
-        "inventory_policy": "continue",
-        "compare_at_price": null,
-        "fulfillment_service": "manual",
-        "inventory_management": "shopify",
-        "option1": "Default Title",
-        "option2": null,
-        "option3": null,
-        "created_at": "2020-12-10T16:16:30+01:00",
-        "updated_at": "2020-12-11T09:48:26+01:00",
-        "taxable": true,
-        "barcode": "4270001164407",
-        "grams": 0,
-        "image_id": null,
-        "weight": 0,
-        "weight_unit": "kg",
-        "inventory_item_id": 39840215498945,
-        "inventory_quantity": 99999,
-        "old_inventory_quantity": 99999,
-        "requires_shipping": true,
-        "admin_graphql_api_id": "gid:\/\/shopify\/ProductVariant\/37747073614017"
+        "title": "Github",
+        "price": "0.00",
+        "link": "https://github.com/sroehrl/node-express-typescript#readme"
       }
     ],
-    "options": [
-      {
-        "id": 7835868758209,
-        "product_id": 6146688680129,
-        "name": "Title",
-        "position": 1,
-        "values": [
-          "Default Title"
-        ]
-      }
-    ],
+
     "images": [
       {
         "id": 24475759313089,
         "product_id": 6146688680129,
-        "position": 1,
-        "created_at": "2020-12-14T16:54:41+01:00",
-        "updated_at": "2020-12-14T16:54:56+01:00",
-        "alt": null,
-        "width": 1500,
-        "height": 1500,
-        "src": "/asset/productImg/node-express-typescript.jpg",
-        "variant_ids": [],
-        "admin_graphql_api_id": "gid:\/\/shopify\/ProductImage\/24475759313089"
+        "src": "/asset/productImg/node-express-typescript.jpg"
       }
     ],
     "image": {
       "id": 24475759313089,
-      "product_id": 6146688680129,
-      "position": 1,
-      "created_at": "2020-12-14T16:54:41+01:00",
-      "updated_at": "2020-12-14T16:54:56+01:00",
-      "alt": null,
-      "width": 1500,
-      "height": 1500,
-      "src": "/asset/productImg/node-express-typescript.jpg",
-      "variant_ids": [],
-      "admin_graphql_api_id": "gid:\/\/shopify\/ProductImage\/24475759313089"
+      "src": "/asset/productImg/node-express-typescript.jpg"
     }
   }
 ]

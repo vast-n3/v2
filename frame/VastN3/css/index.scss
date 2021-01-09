@@ -39,11 +39,12 @@ $color-map:(
         "success":$successColor,
         "warning":$warningColor,
         "transparent":transparent,
-        "see-through": rgba(255,255,255,.7),
         "gray": $gray,
         "white": $white,
         "black": $black
 );
+
+$opacity-map: ("50":.5,"75":.75,"85":.85,"90":.9,"95":.95);
 
 /*
 *  lighten/darken
@@ -65,14 +66,49 @@ $state-map:("focus","hover","active");
 $depth: 3;
 $spread: 4px;
 
-
-/* Typography */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-body{
-  font-family: 'Poppins', sans-serif;
+/* Icons */
+/*@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Material Icons'),
+  local('MaterialIcons-Regular'),
+  url(asset/MaterialIcons-Regular.ttf) format('truetype');
 }
+
+.material-icons {
+  font-family: 'Material Icons', serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  !* Preferred icon size *!
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  !* Support for all WebKit browsers. *!
+  -webkit-font-smoothing: antialiased;
+  !* Support for Safari and Chrome. *!
+  text-rendering: optimizeLegibility;
+
+  !* Support for Firefox. *!
+  -moz-osx-font-smoothing: grayscale;
+
+  !* Support for IE. *!
+  font-feature-settings: 'liga';
+}*/
+/* Typography */
+
+body{
+  font-family: Dejavu Sans, Arial, Verdana, sans-serif
+}
+
 p{
-  line-height: 110%;
+  line-height: 160%;
 }
 
 $fontSize-map:("sm":3, "default":4, "md":5, "lg":7, "xl":9, "xxl":12);

@@ -5,6 +5,7 @@ namespace Neoan3\Component\Vue;
 use Neoan3\Apps\Ops;
 use Neoan3\Apps\Template;
 use Neoan3\Frame\VastN3;
+use Neoan3\Model;
 
 /**
  * Class TestController
@@ -34,6 +35,22 @@ class VueController extends VastN3 {
         header('Content-Type: text/javascript');
         echo $component;
         exit();
+    }
+    public function getVue(string $model, $params=[])
+    {
+        $modelClass = $this->autoLoadModel($model);
+        return $modelClass::find($params);
+    }
+    public function postVue(string $model, $body = [])
+    {
+        $modelClass = $this->autoLoadModel($model);
+        return $modelClass::create($body);
+    }
+    private function autoLoadModel($modelString)
+    {
+        $modelClass = '\\Neoan3\\Model\\' . Ops::toPascalCase($modelString) . '\\'.Ops::toPascalCase($modelString).'Model';
+        $modelClass::init($this->provider);
+        return $modelClass;
     }
 
 }

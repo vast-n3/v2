@@ -8,7 +8,7 @@
 
 
 export default {
-
+ name:'uiButton',
   props: {
     disabled: {
       type: Boolean,

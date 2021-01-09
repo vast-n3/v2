@@ -7,7 +7,7 @@
     <p>
       <ui-button @click="toggleAlt=!toggleAlt">toggle "ONE"</ui-button>
     </p>
-    <div class="grid-6-6">
+    <div class="grid md:grid-6-6">
       <div class="p-2">
         <ui-accordion v-model:open="toggleAlt" title="ONE"></ui-accordion>
         <ui-accordion v-model:open="toggle" title="TWO">

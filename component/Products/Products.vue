@@ -1,10 +1,5 @@
 <template>
-  <ui-layout>
-    <template #menu>
-      If you see this, then the SPA has taken over your experience. <br>
-      The iteration of items happens on the server side as well, delivering a fast paint which search-engines will appreciate.
-    </template>
-
+  <div class="container">
     <h2 class="p-3">
       Fastest shop in the world?
     </h2>
@@ -23,19 +18,20 @@
 
       </div>
     </section>
-  </ui-layout>
+  </div>
+
 
 </template>
 
 <script>
-import uiLayout from '/vue/ui/lib/ui.layout';
 import uiButton from '/vue/ui/lib/ui.button';
 const {ref, inject} = Vue;
+
+
 
 export default {
   name: 'nProducts',
   components:{
-    uiLayout,
     uiButton
   },
   setup(){
