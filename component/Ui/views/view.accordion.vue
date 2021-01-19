@@ -16,7 +16,9 @@
       </div>
       <div class="p-2">
         <ui-code>
-          &lt;ui-accordion :open="true" :title="title"> Revealing content &lt;/ui-accordion>
+          <pre>
+            &lt;ui-accordion :open="true" :title="title"> Revealing content &lt;/ui-accordion>
+          </pre>
         </ui-code>
       </div>
     </div>

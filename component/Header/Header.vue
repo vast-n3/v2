@@ -22,7 +22,7 @@
       </div>
       <div class="place-x-end place-y-center position-relative">
         <div title="user" class="cursor-pointer " v-if="user.userId" @click="showUserMenu=!showUserMenu">
-          <img class="b-rounded w-25px" src="{{auth.picture}}" :src="user.picture" alt="user">
+          <img class="b-rounded w-25px" n-if="auth.picture" src="{{auth.picture}}" :src="user.picture" alt="user">
         </div>
         <ui-button @click="login" v-else >
           Login

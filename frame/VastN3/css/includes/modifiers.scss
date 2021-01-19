@@ -1,23 +1,2 @@
-/*Cursor*/
-@each $cursorOption in $cursorOptions{
-  .cursor-#{$cursorOption} { cursor:  unquote($cursorOption) }
-}
-/*Display*/
-@each $display in ("none", "inline"){
-  .display-#{$display} { display: unquote($display)}
-}
-/*Opacity*/
-@mixin opacity-generator{
-  @each $class, $property in $color-class-map{
-    @each $subclass, $value in $color-map{
-      @each $opName, $opValue in $opacity-map{
-        .#{$class}-#{$subclass}-#{$opName} { #{$property}: rgba($value,$opValue) }
-        @each $state in $state-map{
-          .#{$state}\:#{$class}-#{$subclass}-#{$opName}:#{$state} { #{$property}: rgba($value,$opValue) }
-        }
-      }
+@use "../../../../node_modules/gaudiamus-css/scss/components/operations" as ops;
 
-    }
-  }
-}
-@include opacity-generator

@@ -66,41 +66,7 @@ $state-map:("focus","hover","active");
 $depth: 3;
 $spread: 4px;
 
-/* Icons */
-/*@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Material Icons'),
-  local('MaterialIcons-Regular'),
-  url(asset/MaterialIcons-Regular.ttf) format('truetype');
-}
 
-.material-icons {
-  font-family: 'Material Icons', serif;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;  !* Preferred icon size *!
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  !* Support for all WebKit browsers. *!
-  -webkit-font-smoothing: antialiased;
-  !* Support for Safari and Chrome. *!
-  text-rendering: optimizeLegibility;
-
-  !* Support for Firefox. *!
-  -moz-osx-font-smoothing: grayscale;
-
-  !* Support for IE. *!
-  font-feature-settings: 'liga';
-}*/
 /* Typography */
 
 body{
@@ -118,6 +84,10 @@ $weight-map:("light":200,"strong":700);
 /* Cursor options */
 
 $cursorOptions:("pointer","not-allowed");
+
+/* Display */
+$display-map:("none","inline","flex","block");
+
 
 @import "../../../node_modules/gaudiamus-css/scss/index";
 @import "includes/modifiers";

@@ -5,7 +5,7 @@
       May it be for a login-form, terms & conditions or any additional content interfering with the flow: A modal
       is always helpful.
     </p>
-    <div class="grid-6-6 m-t-3">
+    <div class="grid md:grid-6-6 m-t-3">
       <div class="p-3">
         <ui-button @click="showModal=true" color="accent">
           <ui-icon>open_in_browser</ui-icon>
@@ -14,7 +14,7 @@
         </ui-button>
       </div>
       <div>
-        <ui-code style="overflow-x: auto">
+        <ui-code >
           <pre>
           &lt;ui-modal :show="showModal" @close="showModal =! showModal">
             &lt;div class="p-5">

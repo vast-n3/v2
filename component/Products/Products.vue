@@ -35,7 +35,10 @@ export default {
     uiButton
   },
   setup(){
-    const products = ref([]);
+    const products = ref({
+      id:String,
+      title: String
+    });
     const store = inject('neoanStore');
     store.getAll('products').then(p => {
       products.value = p;
