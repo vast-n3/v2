@@ -5,7 +5,7 @@
       We are using <a href="https://material.io/resources/icons/" target="_blank">material icons</a> and render them
       according to your color needs.
     </p>
-    <div class="grid-6-6">
+    <div class="grid md:grid-6-6">
       <div>
         <p class="m-t-3 m-b-2">single color:</p>
         <ui-icon class="text-accent">api</ui-icon>
@@ -25,7 +25,7 @@
       </div>
       <div class="p-2">
 
-        <ui-code class="w-100p" style="overflow-x: auto">
+        <ui-code class="w-100p" >
                   <pre style="white-space: pre-wrap;">
                     &lt;ui-icon class="text-accent">api&lt;/ui-icon>
                     &lt;ui-icon

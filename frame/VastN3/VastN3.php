@@ -72,12 +72,12 @@ class VastN3 extends Serve
 
         return [
             'store' => [
-                [
+                /*[
                     'products' => [
                         'endpoints' => ['get' => '/products'],
                         'state' => []
                     ]
-                ]
+                ]*/
             ],
             'stylesheets' => [
                 path . '/frame/VastN3/css/index.css'

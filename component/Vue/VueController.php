@@ -6,6 +6,9 @@ use Neoan3\Apps\Ops;
 use Neoan3\Apps\Template;
 use Neoan3\Frame\VastN3;
 use Neoan3\Model;
+use Neoan3\Provider\Auth\AuthObject;
+use Neoan3\Provider\Auth\AuthObjectDeclaration;
+use Neoan3\Provider\MySql\Transform;
 
 /**
  * Class TestController
@@ -39,18 +42,36 @@ class VueController extends VastN3 {
     public function getVue(string $model, $params=[])
     {
         $modelClass = $this->autoLoadModel($model);
+        $this->checkProtected($model, $params);
         return $modelClass::find($params);
     }
     public function postVue(string $model, $body = [])
     {
         $modelClass = $this->autoLoadModel($model);
+        $this->checkProtected($model, $body);
+
         return $modelClass::create($body);
+    }
+    public function putVue(string $model, $body){
+        $modelClass = $this->autoLoadModel($model);
+        $this->checkProtected($model, $body);
+        return $modelClass::update($body);
     }
     private function autoLoadModel($modelString)
     {
         $modelClass = '\\Neoan3\\Model\\' . Ops::toPascalCase($modelString) . '\\'.Ops::toPascalCase($modelString).'Model';
         $modelClass::init($this->provider);
         return $modelClass;
+    }
+    private function checkProtected(string $modelName, &$input)
+    {
+        $transform = new Transform($modelName, $this->provider['db']);
+        $mainTable = $transform->modelStructure[Ops::toSnakeCase($modelName)];
+        if(isset($mainTable['user_id'])){
+            $user = $this->provider['auth']->restrict();
+            $input['user_id'] = $user->getUserId();
+        }
+
     }
 
 }

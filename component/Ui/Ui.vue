@@ -7,10 +7,16 @@
       </div>
 
     </template>
-    <div class="container" style="min-height: 100vh">
-      <div class="m-t-5 m-x-1 bg-white b-rounded p-4 grid-11-1">
+    <div class="m-x-auto lg:m-l-5 w-75p lg:w-50p bg-white b-rounded p-5 m-t-5" >
+      <div class="m-5 grid-11-1">
         <transition name="slide-fade">
           <view-introduction v-if="activeView === 'Introduction'"/>
+        </transition>
+        <transition name="slide-fade">
+          <view-gaudiamus v-if="activeView === 'Gaudiamus SCSS'"/>
+        </transition>
+        <transition name="slide-fade">
+          <view-theming v-if="activeView === 'Theming / Color'"/>
         </transition>
         <transition name="slide-fade">
           <view-alert v-if="activeView === 'Alert'"/>
@@ -66,6 +72,8 @@ import ViewModal from "/vue/ui/views/view.modal";
 import ViewProgress from "/vue/ui/views/view.progress";
 import ViewTab from "/vue/ui/views/view.tab";
 import ViewTag from "/vue/ui/views/view.tag";
+import ViewGaudiamus from "/vue/ui/views/view.gaudiamus";
+import ViewTheming from "/vue/ui/views/view.theming";
 
 const menu = [
   {
@@ -77,7 +85,7 @@ const menu = [
     name: 'CSS',
     active: false,
     links: [
-      'Gaudiamus SCSS', 'Theming / Color', 'Customization'
+      'Gaudiamus SCSS', 'Theming / Color'
     ]
   },
   {
@@ -101,6 +109,7 @@ const menu = [
 export default {
   name: 'nUi',
   components: {
+    ViewGaudiamus,
     ViewAlert,
     ViewModal,
     ViewForm,
@@ -112,6 +121,7 @@ export default {
     ViewProgress,
     ViewTab,
     ViewTag,
+    ViewTheming,
     uiLayout
   },
   data() {

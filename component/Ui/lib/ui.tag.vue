@@ -1,5 +1,5 @@
 <template>
-<div :class="classes" class="b-1 p-x-2 display-inline m-r-1" style="border-radius: 15px">
+<div :class="classes" class="b-1 p-x-2 d-inline m-r-1" style="border-radius: 15px">
   <span @click="selected">
     <slot></slot>
   </span>

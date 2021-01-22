@@ -4,7 +4,7 @@
     <p>
       Well, I guess that explains itself.
     </p>
-    <div class="grid-6-6">
+    <div class="grid ">
       <form>
         <div class="grid-6-6">
           <ui-input value="" required placeholder="First Name"/>
@@ -17,10 +17,8 @@
           <ui-input type="textarea" label="Bio"/>
         </p>
         <p>
-          <ui-input type="select" label="Please select">
-            <option value="0" disabled selected>choose</option>
-            <option value="0">one</option>
-            <option value="1">two</option>
+          <ui-input type="select" label="Please select"
+                    placeholder="make a choice" :options="[{id:1,title:'one'},{id:2, title:'two'}]">
           </ui-input>
         </p>
         <p>
@@ -33,7 +31,7 @@
         </div>
       </form>
       <div class="p-2">
-        <ui-code style="overflow-x: auto">
+        <ui-code>
                   <pre>
                     &lt;form>
                       &lt;div class="grid-6-6">
@@ -45,6 +43,11 @@
                       &lt;/div>
                       &lt;div>
                         &lt;ui-input type="textarea" v-model:value="user.bio" label="Bio"/>
+                      &lt;/div>
+                      &lt;div>
+                        &lt;ui-input type="select" label="Please select"
+                                  placeholder="make a choice" :options="[{id:1,title:'one'},{id:2, title:'two'}]">
+                        &lt;/ui-input>
                       &lt;/div>
                       &lt;div>
                         &lt;ui-input required v-model:value="user.tac" type="checkbox" label="Accept terms and conditions"/>
@@ -68,6 +71,7 @@ import UiButton from '/vue/ui/lib/ui.button';
 import UiInput from '/vue/ui/lib/ui.input';
 import UiCode from '/vue/ui/lib/ui.code';
 import UiIcon from '/vue/ui/lib/ui.icon';
+
 export default {
   components: {
     UiCode,

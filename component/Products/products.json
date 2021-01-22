@@ -70,5 +70,74 @@
       "id": 24475759313089,
       "src": "/asset/productImg/node-express-typescript.jpg"
     }
+  },
+  {
+    "id": 6146692317323,
+    "title": "API Scaffolder",
+    "vendor": "sroehrl",
+    "price": "9.99",
+    "variants": [
+      {
+        "id": 37747089965249,
+        "product_id": 6146692317377,
+        "title": "Github",
+        "price": "3.99",
+        "link": "https://github.com/sroehrl/neoan3-demo-api#3readme"
+      }
+    ],
+
+    "images": [
+      {
+        "id": 24475988984001,
+        "src": "https://repository-images.githubusercontent.com/282548360/b6b82e80-d5a7-11ea-9b3b-3300cb8abc65"
+      }
+
+    ],
+    "image": {
+      "id": 24475988984001,
+      "src": "https://repository-images.githubusercontent.com/282548360/b6b82e80-d5a7-11ea-9b3b-3300cb8abc65"
+    }
+  },
+  {
+    "id": 6146692311258,
+    "title": "Gaudiamus",
+    "vendor": "gaudiamus",
+    "price": "9.99",
+    "variants": [
+      {
+        "id": 37747089965249,
+        "product_id": 6146692317377,
+        "title": "Github",
+        "price": "3.99",
+        "link": "https://github.com/gaudiamus-css/gaudiamus-css.github.io#3readme"
+      },
+      {
+        "id": 3774708996529,
+        "product_id": 6144317377,
+        "title": "Web",
+        "price": "3.99",
+        "link": "https://gaudiamus-css.github.io/"
+      }
+    ,
+      {
+        "id": 3774708996529,
+        "product_id": 6144317377,
+        "title": "Playground",
+        "price": "3.99",
+        "link": "https://gaudiamus-css.github.io/playground.html"
+      }
+    ],
+
+    "images": [
+      {
+        "id": 24475988984001,
+        "src": "https://repository-images.githubusercontent.com/283393446/997c6380-d599-11ea-8c37-b491f15db26e"
+      }
+
+    ],
+    "image": {
+      "id": 24475988984001,
+      "src": "https://repository-images.githubusercontent.com/283393446/997c6380-d599-11ea-8c37-b491f15db26e"
+    }
   }
 ]

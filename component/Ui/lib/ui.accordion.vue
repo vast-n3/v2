@@ -1,7 +1,7 @@
 <template>
   <section>
-    <div class="grid-10-2 b-b-1 p-y-2 p-x-3 hover:raise-1-gray"
-         :class="{'b-primary':open,'b-gray':!open}"
+    <div class="grid-10-2 b-b-1 p-y-2 p-x-3 hover:bg-gray-light-50 test"
+         :class="{'b-accent':open,'b-gray':!open}"
          style="cursor: pointer"
          @click="$emit('update:open',!open)">
       <div class="place-y-center"><slot name="title">{{title}}</slot></div>

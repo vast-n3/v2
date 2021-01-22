@@ -1,3 +1,6 @@
+html,body,#app{
+  min-height: 100vh;
+}
 h1{
   @extend .font-xl, .font-strong, .text-primary, .m-y-2;
 }
@@ -20,6 +23,9 @@ a{
   @extend .b-0, .b-b-2, .bg-transparent, .cursor-pointer, .text-gray-dark, .m-y-2, .w-100p, .p-b-1, .hover\:b-accent, .hover\:text-accent, .font-strong;
 }
 
+pre{
+  line-height: 1.5;
+}
 .circle{
   border-radius: 50%;
 }

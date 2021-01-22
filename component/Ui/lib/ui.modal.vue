@@ -12,7 +12,7 @@ simple slotted modal
 <template>
   <div :style="style.backdrop" v-if="show" class="modal-backdrop">
     <section :style="style.content" class="grid m-t-5">
-      <div class="w-50p place-x-center bg-white b-rounded raise-1-gray">
+      <div class="w-85p md:w-50p place-x-center bg-white b-rounded raise-1-gray">
         <div class="grid-8-4 b-b-1 b-gray">
           <div class="p-t-3 p-b-2 p-l-4 font-strong">
             <slot name="title">{{title}}</slot>
