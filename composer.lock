@@ -900,12 +900,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/scssphp/scssphp.git",
-                "reference": "865482712bc5dba8dd878ffec78e7fbfe968295d"
+                "reference": "92882f1802a5159396c6cfbc9238bb69fc61b326"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/scssphp/scssphp/zipball/865482712bc5dba8dd878ffec78e7fbfe968295d",
-                "reference": "865482712bc5dba8dd878ffec78e7fbfe968295d",
+                "url": "https://api.github.com/repos/scssphp/scssphp/zipball/92882f1802a5159396c6cfbc9238bb69fc61b326",
+                "reference": "92882f1802a5159396c6cfbc9238bb69fc61b326",
                 "shasum": ""
             },
             "require": {
@@ -955,7 +955,7 @@
                 "scss",
                 "stylesheet"
             ],
-            "time": "2021-01-06T21:10:03+00:00"
+            "time": "2021-01-20T10:12:27+00:00"
         }
     ],
     "packages-dev": [

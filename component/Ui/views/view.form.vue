@@ -4,7 +4,7 @@
     <p>
       Well, I guess that explains itself.
     </p>
-    <div class="grid md:grid-6-6">
+    <div class="grid ">
       <form>
         <div class="grid-6-6">
           <ui-input value="" required placeholder="First Name"/>

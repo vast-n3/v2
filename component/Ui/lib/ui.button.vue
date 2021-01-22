@@ -1,5 +1,5 @@
 <template>
-  <button :disabled="disabled" style="line-height: 1" :class="classes" class="b-rounded p-x-2 p-y-1 b-1">
+  <button :type="type" :disabled="disabled" style="line-height: 1" :class="classes" class="b-rounded p-x-2 p-y-1 b-1">
     <slot></slot>
   </button>
 </template>
@@ -13,6 +13,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    type:{
+      type: String,
+      default: 'button'
     },
     color: {
       type: String,

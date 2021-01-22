@@ -21,7 +21,6 @@ class ProductsController extends VastN3 {
     function init(): void
     {
         $products = $this->getProducts();
-        $this->renderer->storeObject('products', $products);
         $this->hook('main', 'products', ['products' => $products]);
         $this->output();
     }

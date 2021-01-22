@@ -48,7 +48,12 @@ class Auth0Wrapper implements Auth
         if(!$user = $this->instance->getUser()){
             throw new RouteException('Authentication failed', 401);
         }
-        return new AuthObject($user['sub'], ['user'], $user);
+        return new AuthObject($this->unhexableId($user['sub']), ['user'], $user);
+    }
+    private function unhexableId(string $id): string
+    {
+        preg_match_all('/[0-9a-f]+/i', $id, $matches);
+        return str_pad('0',32,implode('',$matches[0]));
     }
 
     public function restrict($scope = []): AuthObjectDeclaration

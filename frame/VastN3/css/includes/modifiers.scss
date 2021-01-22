@@ -1,2 +1,10 @@
 @use "../../../../node_modules/gaudiamus-css/scss/components/operations" as ops;
 
+
+@include ops.mapToClassUnquote($flex-key, $flex-direction-map, "flex-direction", $breakpoint-map);
+
+.text-inherit{
+  color:inherit;
+}
+@include ops.generate-states("text-inherit", $state-map);
+@include ops.generate-breakpoints("text-inherit","color",inherit, $breakpoint-map);

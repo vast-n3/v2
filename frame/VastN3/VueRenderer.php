@@ -9,6 +9,7 @@ use DOMXPath;
 use Neoan3\Apps\Ops;
 use Neoan3\Apps\Template;
 use Neoan3\Core\Renderer;
+use Neoan3\Core\RouteException;
 use ScssPhp\ScssPhp\Compiler;
 
 class VueRenderer implements Renderer
@@ -30,6 +31,7 @@ class VueRenderer implements Renderer
         $this->hooks = [
             'title' => $this->title,
             'current_endpoint' => OPS::toCamelCase(current_endpoint),
+            'theming' => file_get_contents(__DIR__. '/component-theming.js'),
             'header' => '',
             'main' => '',
             'footer' => '',
@@ -70,12 +72,6 @@ class VueRenderer implements Renderer
     {
         $this->hooks['store'] ='const storeObjects = Vue.reactive('. json_encode($this->storeObject) . ');';
         $this->hooks['browserImports'] = implode("", $this->browserImports);
-        $compileScss = false;
-        if($compileScss){
-            $scss = new Compiler();
-            $scss->addImportPath(path);
-            file_put_contents(__DIR__ . '/css/index.css', $scss->compile(file_get_contents(__DIR__ . '/css/index.scss')));
-        }
         $this->hooks['title'] = $this->title;
         $this->hooks['lang'] = $this->lang;
         foreach ($this->storeObject as $name => $value){
@@ -150,19 +146,23 @@ class VueRenderer implements Renderer
                     $route = end($endpoints);
                 }
                 $this->storeObject[$name]['endpoints'][$method] = $route;
-                // should only happen on GET!
-                if($preloads && $usesAuto){
-                    $className = '\\Neoan3\\Component\\Vue\\VueController';
-                    $apiCtrl = new $className();
-                    $function = 'getVue';
-                    $this->storeObject[$name]['state'] = $apiCtrl->$function($name);
-                } elseif ($preloads) {
-                    $className = '\\Neoan3\\Component\\' . Ops::toPascalCase($name) . '\\' . Ops::toPascalCase($name) . 'Controller';
-                    $apiCtrl = new $className();
-                    $function = 'get' . Ops::toPascalCase($name);
-                    $state = $apiCtrl->$function();
-                    $this->storeObject[$name]['state'] = $state;
+                try{
+                    if($preloads && $usesAuto){
+                        $className = '\\Neoan3\\Component\\Vue\\VueController';
+                        $apiCtrl = new $className();
+                        $function = 'getVue';
+                        $this->storeObject[$name]['state'] = $apiCtrl->$function($name);
+                    } elseif ($preloads) {
+                        $className = '\\Neoan3\\Component\\' . Ops::toPascalCase($name) . '\\' . Ops::toPascalCase($name) . 'Controller';
+                        $apiCtrl = new $className();
+                        $function = 'get' . Ops::toPascalCase($name);
+                        $state = $apiCtrl->$function();
+                        $this->storeObject[$name]['state'] = $state;
+                    }
+                } catch (RouteException $e){
+                    redirect();
                 }
+
             }
         }
     }

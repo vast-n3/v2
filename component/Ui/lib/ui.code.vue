@@ -15,6 +15,7 @@ export default {
   props:{
     lang:{
       type: String,
+      default: 'any'
     }
   },
   data:()=>({
@@ -41,28 +42,61 @@ export default {
     },
     basicHighlight(el){
       if(el.tagName === 'PRE'){
-        const tags = /&lt;\/*[a-z0-9\s\n=":/[{}\]',._-]+(&gt;|>)/gmi;
-        this.slotContent = this.slotContent.replace(tags, match => highlightTemplate(match, 'accent-lighter'))
-
-        const quotes = /(?!.*hl)"[a-z0-9\s\n=:/[{}\]',._-]+"/gmi;
-        this.slotContent = this.slotContent.replace(quotes, match => highlightTemplate(match, 'success-light'))
-
-        //language specific
-        if(this.lang === 'js'){
-          const keyWords = /(^|\s)(import|export|function|from|default)\s/g;
-          this.slotContent = this.slotContent.replace(keyWords, match => highlightTemplate(match, 'accent-light'))
-          const quotes = /(?!.*hl)'[a-z0-9\s\n=:/[{}\]",._-]+'/gmi;
-          this.slotContent = this.slotContent.replace(quotes, match => highlightTemplate(match, 'success-light'))
-        }
+        const applicableHighlighting =   highlightingPatterns.filter(x => x.lang === 'any' || x.lang === this.lang);
+        applicableHighlighting.forEach(rule => {
+          this.highlighting(rule.regExp, rule.color)
+        })
 
         // final strip
         this.slotContent = this.slotContent.replace(/&amp;/g,'&').replace(/&lt;br&gt;/g,'<br>');
       }
 
+    },
+    highlighting(regEx, color){
+      this.slotContent = this.slotContent.replace(regEx, match => highlightTemplate(match, color))
     }
   },
   template: `{{template}}`
 }
+
+const highlightingPatterns = [
+  {
+    name:'html tags',
+    lang:'any',
+    regExp:/&lt;\/*[a-z0-9\s\n=":/[{}\]',._-]+(&gt;|>)/gmi,
+    color: 'warning-lighter'
+  },
+  {
+    name: 'double quotes',
+    lang: 'any',
+    regExp:/(?!.*hl)"[a-z0-9\s\n=:/[{}\]',._-]+"/gmi,
+    color:'success-light'
+  },
+  {
+    name: 'keywords',
+    lang: 'javascript',
+    regExp:/(^|\s)(import|export|function|from|default)\s/g,
+    color: 'accent-light'
+  },
+  {
+    name: 'single quotes',
+    lang: 'javascript',
+    regExp: /(?!.*hl)'[a-z0-9\s\n=:/[{}\]",._-]+'/gmi,
+    color:'success-light'
+  },
+  {
+    name: 'variables',
+    lang: 'php',
+    regExp: /(\$|\))[a-z0-9&(;-]*/ig,
+    color: 'success'
+  },
+  {
+    name: 'comments single line',
+    lang: 'php',
+    regExp: /\/\/[^\n]/g,
+    color: 'primary'
+  }
+];
 
 const highlightTemplate = (match, color)=>{
   const newEl = document.createElement('span');

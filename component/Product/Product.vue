@@ -26,11 +26,11 @@
           <a target="_blank" :href="link" >{{link}}</a>
         </p>
         <div class="m-5">
-          <ui-button @click="showNotification=true" color="primary-filled">
+          <ui-button class="font-md" @click="showNotification=true" color="primary-filled">
             Buy for US$ {{product.price}}
           </ui-button>
-          <ui-button class="m-l-5" @click="$router.push('/products')" color="accent">
-            Back to products
+          <ui-button class="m-t-2  lg:m-l-5 lg:m-t-0 font-md" @click="$router.push('/products')" color="accent">
+            <a class="text-inherit" style="color:inherit">Back to products</a>
           </ui-button>
           <div class="m-t-5" v-show="showNotification">
             <ui-alert color="warning">
