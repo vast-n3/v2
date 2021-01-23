@@ -8,7 +8,9 @@ namespace Neoan3\Provider\Auth;
 use Auth0\SDK\Auth0;
 use Auth0\SDK\Exception\CoreException;
 use Exception;
+use Neoan3\Apps\Ops;
 use Neoan3\Core\RouteException;
+use function mb_substr;
 
 /**
  * Class Auth0Wrapper
@@ -52,8 +54,9 @@ class Auth0Wrapper implements Auth
     }
     private function unhexableId(string $id): string
     {
-        preg_match_all('/[0-9a-f]+/i', $id, $matches);
-        return str_pad('0',32,implode('',$matches[0]));
+        $userId = bin2hex($id);
+        $userId = mb_substr($userId,-32);
+        return $userId;
     }
 
     public function restrict($scope = []): AuthObjectDeclaration

@@ -3,5 +3,5 @@
   "client_id": "",
   "client_secret": "",
   "redirect_uri": "http://localhost:8080/auth",
-  "scope": "user"
+  "scope": "openid profile email"
 }

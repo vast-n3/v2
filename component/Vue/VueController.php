@@ -69,7 +69,7 @@ class VueController extends VastN3 {
         $mainTable = $transform->modelStructure[Ops::toSnakeCase($modelName)];
         if(isset($mainTable['user_id'])){
             $user = $this->provider['auth']->restrict();
-            $input['user_id'] = $user->getUserId();
+            $input['user_id'] = (strpos($mainTable['user_id']['type'], 'binary') !== false ? '$' : '') . $user->getUserId();
         }
 
     }
