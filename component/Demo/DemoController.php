@@ -4,6 +4,7 @@ namespace Neoan3\Component\Demo;
 
 use Neoan3\Apps\Template;
 use Neoan3\Core\Unicore;
+use Neoan3\Provider\Auth\Authorization;
 
 /**
  * Class Demo
@@ -32,5 +33,10 @@ class DemoController extends Unicore
             })
             ->hook('main', 'demo', $info)
             ->output();
+    }
+    #[Authorization('restrict')]
+    function getDemo()
+    {
+        return ['hi' => 'there'];
     }
 }

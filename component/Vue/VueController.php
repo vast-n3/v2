@@ -43,6 +43,7 @@ class VueController extends VastN3 {
     {
         $modelClass = $this->autoLoadModel($model);
         $this->checkProtected($model, $params);
+        $params['delete_date'] = $params['delete_date'] ?? 'NULL';
         return $modelClass::find($params);
     }
     public function postVue(string $model, $body = [])
