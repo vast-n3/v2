@@ -6,8 +6,6 @@
 namespace Neoan3\Frame;
 
 use Exception;
-use JetBrains\PhpStorm\ArrayShape;
-use Neoan3\Core\RouteException;
 use Neoan3\Core\Serve;
 use Neoan3\Provider\Auth\Auth0;
 use Neoan3\Provider\Auth\Auth0Wrapper;

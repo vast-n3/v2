@@ -12,4 +12,10 @@ class DemoTest extends TestCase
         $this->expectOutputRegex('/^<!doctype html>/');
         $st->init();
     }
+    public function testAuthorization()
+    {
+        $st = new DemoController();
+        $r = $st->getDemo();
+        var_dump($r);
+    }
 }
